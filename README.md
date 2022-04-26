@@ -24,7 +24,7 @@ Build a Todo list using:
 
 ## Live Demo
 
-Check **Live Demo** [here.](https://ha-manel.github.io/Microverse-to-do-list/)
+Check **Live Demo** [here.](https://ha-manel.github.io/Microverse-to-do-list/dist/index.html)
 
 ## Getting Started
 
@@ -44,14 +44,18 @@ To setup the webpage locally: click on "**Code**" (dropdown list) then "**Downlo
 To run the project open the downloaded folder (after extraction) then run the "**index.html**" file in your browser.
 
 ### Install dependencies
+
 ```
 npm install
 ```
+
 ### Build the app
+
 ```
 npm run build
 ```
-### Run the app 
+
+### Run the app
 
 ```
 npm start
