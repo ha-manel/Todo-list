@@ -1,12 +1,18 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Webpack-Setup
+# Microverse To-Do list
 
-> This is a Microverse (@microverseinc) project in which I created a Webpack boilerplate.
+> This is a Microverse (@microverseinc) project in which I created a To-do list using webpack.
 
 ## Requirements
 
-Build a Webpack boilerplate.
+Build a Todo list using:
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- Webpack
+- Linters (Lighthouse, Webhint, Stylelint, Eslint)
 
 ## Built With
 
@@ -14,6 +20,11 @@ Build a Webpack boilerplate.
 - CSS3
 - JavaScript (ES6)
 - Webpack
+- Linters (Lighthouse, Webhint, Stylelint, Eslint)
+
+## Live Demo
+
+Check **Live Demo** [here.](https://ha-manel.github.io/Microverse-Microverse-to-do-list/)
 
 ## Getting Started
 
