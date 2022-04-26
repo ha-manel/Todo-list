@@ -51,7 +51,7 @@ npm install
 ```
 npm run build
 ```
-### Run the app
+### Run the app 
 
 ```
 npm start
