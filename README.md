@@ -24,7 +24,7 @@ Build a Todo list using:
 
 ## Live Demo
 
-Check **Live Demo** [here.](https://ha-manel.github.io/Microverse-Microverse-to-do-list/)
+Check **Live Demo** [here.](https://ha-manel.github.io/Microverse-to-do-list/)
 
 ## Getting Started
 
