@@ -1,3 +1,7 @@
+import Status from './status.js';
+
+const status = new Status();
+
 export default class Tasks {
   constructor() {
     this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -5,12 +9,17 @@ export default class Tasks {
 
   populateList = () => {
     // display items
+    this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
     const todoContainer = document.querySelector('#todo-list');
     todoContainer.innerHTML = '';
     this.tasksArray.forEach((task) => {
       const li = document.createElement('li');
-      li.innerHTML = `<button class="check-task"><i class="fa-regular fa-square"></i></button> <input class="todo-item" type="text" value="${task.description}"><button class="delete-task"><i class="fa-solid fa-trash-can"></i></button>`;
+      li.className = 'todo-task';
+      li.innerHTML = `<div><button class="check-task"><i class="fa-regular fa-square"></i> <i class="fa-solid fa-check"></i></button> <input class="todo-input" type="text" value="${task.description}"></div><button class="delete-task"><i class="fa-solid fa-trash-can"></i></button>`;
       todoContainer.insertBefore(li, todoContainer.children[task.index]);
+      if (task.isCompleted) {
+        li.classList.add('active');
+      }
     });
 
     // delete item
@@ -22,7 +31,7 @@ export default class Tasks {
     });
 
     // edit item
-    const editInput = document.querySelectorAll('.todo-item');
+    const editInput = document.querySelectorAll('.todo-input');
     editInput.forEach((input, index) => {
       input.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' && input.value) {
@@ -35,9 +44,13 @@ export default class Tasks {
         }
       });
     });
+
+    // complete task and update status
+    status.completeTask();
   }
 
   add = (value) => {
+    this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
     const newTask = {
       description: value,
       isCompleted: false,
@@ -49,12 +62,14 @@ export default class Tasks {
   }
 
   update = (value, index) => {
+    this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
     this.tasksArray[index].description = value;
     localStorage.setItem('tasks', JSON.stringify(this.tasksArray));
     this.populateList();
   }
 
   remove = (index) => {
+    this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
     this.tasksArray.splice(index, 1);
     for (let i = 0; i < this.tasksArray.length; i += 1) {
       this.tasksArray[i].index = i;
