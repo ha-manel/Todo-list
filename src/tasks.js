@@ -9,7 +9,6 @@ export default class Tasks {
 
   populateList = () => {
     // display items
-    this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
     const todoContainer = document.querySelector('#todo-list');
     todoContainer.innerHTML = '';
     this.tasksArray.forEach((task) => {
@@ -46,30 +45,26 @@ export default class Tasks {
     });
 
     // complete task and update status
-    status.completeTask();
+    status.completeTask(this.tasksArray);
   }
 
   add = (value) => {
-    this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
-    const newTask = {
+    this.tasksArray.push({
       description: value,
       isCompleted: false,
       index: this.tasksArray.length,
-    };
-    this.tasksArray.push(newTask);
+    });
     localStorage.setItem('tasks', JSON.stringify(this.tasksArray));
     this.populateList();
   }
 
   update = (value, index) => {
-    this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
     this.tasksArray[index].description = value;
     localStorage.setItem('tasks', JSON.stringify(this.tasksArray));
     this.populateList();
   }
 
   remove = (index) => {
-    this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
     this.tasksArray.splice(index, 1);
     for (let i = 0; i < this.tasksArray.length; i += 1) {
       this.tasksArray[i].index = i;
