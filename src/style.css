@@ -3,11 +3,10 @@
 body {
   margin: 0;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #e9ecef;
   font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  padding: 130px 0;
 }
 
 main {
@@ -21,6 +20,7 @@ main {
   box-sizing: border-box;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+  margin: 0 auto;
 }
 
 #header {
@@ -33,7 +33,7 @@ main {
   margin: 0;
 }
 
-#new-item {
+#new-task {
   width: 100%;
   font-size: 15px;
   padding: 15px 30px;
@@ -44,12 +44,12 @@ main {
   color: #8b8c89;
 }
 
-#new-item::placeholder {
+#new-task::placeholder {
   color: #a5a58d;
   font-style: italic;
 }
 
-#todo {
+#todo-list {
   width: 100%;
   min-height: 67px;
   padding: 0;
@@ -58,12 +58,19 @@ main {
   font-weight: 300;
 }
 
-#todo li {
+#todo-list li {
   display: flex;
   justify-content: space-between;
   padding: 15px 25px;
   box-sizing: border-box;
   border-bottom: 1px solid #e9ecef;
+}
+
+.todo-item {
+  border: none;
+  outline: none;
+  font-size: 17px;
+  font-family: inherit;
 }
 
 button {
