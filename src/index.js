@@ -1,4 +1,4 @@
-// import './style.css';
+import './style.css';
 import Tasks from './tasks.js';
 
 const tasks = new Tasks();
@@ -15,28 +15,8 @@ newInput.addEventListener('keypress', (e) => {
   }
 });
 
-// edit description of task with enter keypress or a change in the input field
-const editInput = document.querySelectorAll('.todo-item');
-editInput.forEach((input, index) => {
-  input.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && input.value) {
-      tasks.update(input.value, index);
-    }
-  });
-});
-
-editInput.forEach((input, index) => {
-  input.addEventListener('change', () => {
-    if (input.value) {
-      tasks.update(input.value, index);
-    }
-  });
-});
-
-// delete a task
-const deleteBtn = document.querySelectorAll('.delete-task');
-deleteBtn.forEach((button, index) => {
-  button.addEventListener('click', () => {
-    tasks.delete(index);
-  });
+// refresh the list
+const refreshBtn = document.querySelector('#refresh-list');
+refreshBtn.addEventListener('click', () => {
+  document.location.reload();
 });
