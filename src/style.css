@@ -66,11 +66,34 @@ main {
   border-bottom: 1px solid #e9ecef;
 }
 
-.todo-item {
+#todo-list li div {
+  display: flex;
+  align-items: center;
+}
+
+.todo-input {
   border: none;
   outline: none;
   font-size: 17px;
   font-family: inherit;
+  align-self: flex-start;
+}
+
+.fa-check {
+  display: none;
+  color: #38b000;
+}
+
+.todo-task.active .fa-check {
+  display: block;
+}
+
+.todo-task.active .fa-square {
+  display: none;
+}
+
+.todo-task.active .todo-input {
+  text-decoration: line-through;
 }
 
 button {
@@ -88,10 +111,6 @@ button {
 i {
   font-size: 17px;
   color: #a5a58d;
-}
-
-.fa-square {
-  margin-right: 10px;
 }
 
 #clear-completed {
