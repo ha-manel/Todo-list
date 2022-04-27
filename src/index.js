@@ -1,29 +1,42 @@
-import './style.css';
+// import './style.css';
+import Tasks from './tasks.js';
 
-let todoList = [
-  {
-    description: 'wash dishes',
-    isCompleted: false,
-    index: 1,
-  },
-  {
-    description: 'buy groceries',
-    isCompleted: false,
-    index: 0,
-  },
-];
-
-localStorage.setItem('todo', JSON.stringify(todoList));
+const tasks = new Tasks();
 
 // populate the todo list from storage
-const todoContainer = document.querySelector('#todo');
-const populateList = () => {
-  todoList = JSON.parse(localStorage.getItem('todo'));
-  todoList.forEach((item) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<button class="check-item"><i class="fa-regular fa-square"></i>${item.description}</button><button
-          class="move-item"><i class="fa-solid fa-ellipsis-vertical"></i></button>`;
-    todoContainer.insertBefore(li, todoContainer.children[item.index]);
+tasks.populateList();
+
+// add new task
+const newInput = document.querySelector('#new-task');
+newInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter' && newInput.value) {
+    tasks.add(newInput.value);
+    newInput.value = '';
+  }
+});
+
+// edit description of task with enter keypress or a change in the input field
+const editInput = document.querySelectorAll('.todo-item');
+editInput.forEach((input, index) => {
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && input.value) {
+      tasks.update(input.value, index);
+    }
   });
-};
-populateList();
+});
+
+editInput.forEach((input, index) => {
+  input.addEventListener('change', () => {
+    if (input.value) {
+      tasks.update(input.value, index);
+    }
+  });
+});
+
+// delete a task
+const deleteBtn = document.querySelectorAll('.delete-task');
+deleteBtn.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    tasks.delete(index);
+  });
+});
