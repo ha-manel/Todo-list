@@ -29,9 +29,6 @@ export default class Tasks {
           this.update(input.value, index);
         }
       });
-    });
-
-    editInput.forEach((input, index) => {
       input.addEventListener('change', () => {
         if (input.value) {
           this.update(input.value, index);
