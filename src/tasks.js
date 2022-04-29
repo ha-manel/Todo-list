@@ -14,8 +14,8 @@ export default class Tasks {
     this.tasksArray.forEach((task) => {
       const li = document.createElement('li');
       li.className = 'todo-task';
-      li.draggable = true;
-      li.innerHTML = `<div><button class="check-task"><i class="fa-regular fa-square"></i> <i class="fa-solid fa-check"></i></button> <input class="todo-input" type="text" value="${task.description}"></div><button class="delete-task"><i class="fa-solid fa-trash-can"></i></button>`;
+      li.draggable = 'true';
+      li.innerHTML = `<div><button class="check-task"><i class="fa-regular fa-square"></i> <i class="fa-solid fa-check"></i></button> <input class="todo-input" type="text" value="${task.description}"></div><div><button class="delete-task"><i class="fa-solid fa-trash-can"></i></button><button class="move-task"><i class="fa-solid fa-ellipsis-vertical"></i></button><div>`;
       todoContainer.insertBefore(li, todoContainer.children[task.index]);
       if (task.isCompleted) {
         li.classList.add('active');

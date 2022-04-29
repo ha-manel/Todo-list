@@ -74,7 +74,7 @@ main {
 .todo-input {
   border: none;
   outline: none;
-  font-size: 17px;
+  font-size: 15px;
   font-family: inherit;
   align-self: flex-start;
 }
@@ -126,6 +126,6 @@ i {
   border-bottom-right-radius: 8px;
 }
 
-.draggable.draggable {
-  opacity: 0.5;
+.move-task {
+  cursor: move;
 }
