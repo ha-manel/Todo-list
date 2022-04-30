@@ -74,7 +74,7 @@ main {
 .todo-input {
   border: none;
   outline: none;
-  font-size: 17px;
+  font-size: 15px;
   font-family: inherit;
   align-self: flex-start;
 }
@@ -124,4 +124,12 @@ i {
   background-color: #f5f3f4;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+}
+
+.move-task {
+  cursor: move;
+}
+
+.dragging {
+  border: 1px solid #a5a58d !important;
 }
