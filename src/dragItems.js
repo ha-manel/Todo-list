@@ -26,8 +26,13 @@ const dragItem = (array) => {
     draggable.addEventListener('drop', () => {
       const newDrags = document.querySelectorAll('.todo-task');
       newDrags.forEach((drag, index) => {
-        array[drag.id].index = index;
-        console.log(`old: ${drag.id}, new ${array[drag.id].index}`);
+        array.forEach((item) => {
+          if (item.index == drag.id) {
+            item.index = index;
+            drag.id = index;
+            console.log(`old: ${drag.id}, new ${array[drag.id].index}`);
+          }
+        });
       });
       console.log(array);
       localStorage.setItem('tasks', JSON.stringify(array));

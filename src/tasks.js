@@ -49,7 +49,7 @@ export default class Tasks {
 
     // complete task and update status
     status.completeTask(this.tasksArray);
-    console.log(this.tasksArray);
+
     // dragging feature
     dragItem(this.tasksArray);
   }
