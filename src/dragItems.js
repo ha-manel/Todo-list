@@ -31,7 +31,7 @@ const dragItem = (array) => {
         const itemIndex = array.indexOf(obj);
         array[itemIndex].index = newIndex + 1;
         array[itemIndex].isMoved = true;
-        item.id = newIndex;
+        item.id = newIndex + 1;
       });
 
       array.forEach((item) => {
