@@ -18,7 +18,7 @@ export default class Tasks {
       li.draggable = true;
       li.id = task.index;
       li.innerHTML = `<div><button class="check-task"><i class="fa-regular fa-square"></i> <i class="fa-solid fa-check"></i></button> <input class="todo-input" type="text" value="${task.description}"></div><div><button class="delete-task"><i class="fa-solid fa-trash-can"></i></button><button class="move-task"><i class="fa-solid fa-ellipsis-vertical"></i></button><div>`;
-      todoContainer.insertBefore(li, todoContainer.children[task.index - 1]);
+      todoContainer.insertBefore(li, todoContainer.children[task.index]);
       if (task.isCompleted) {
         li.classList.add('active');
       }
@@ -51,15 +51,14 @@ export default class Tasks {
     status.completeTask(this.tasksArray);
 
     // dragging feature
-    dragItem(this.tasksArray);
+    dragItem();
   }
 
   add = (value) => {
     this.tasksArray.push({
       description: value,
       isCompleted: false,
-      index: this.tasksArray.length + 1,
-      isMoved: false,
+      index: this.tasksArray.length,
     });
     localStorage.setItem('tasks', JSON.stringify(this.tasksArray));
     this.populateList();
