@@ -14,6 +14,7 @@ const getDragAfterElement = (container, y) => {
 const dragItem = () => {
   const draggables = document.querySelectorAll('.todo-task');
   const container = document.getElementById('todo-list');
+  const newOrder = [];
   draggables.forEach((draggable) => {
     draggable.addEventListener('dragstart', () => {
       draggable.classList.add('dragging');
@@ -23,32 +24,11 @@ const dragItem = () => {
       draggable.classList.remove('dragging');
     });
 
-    //   draggable.addEventListener('drop', () => {
-    //     const newDrag = document.querySelectorAll('.todo-task');
-    //     newDrag.forEach((item, newIndex) => {
-    //       const obj = array.find((x) => x.index == item.id && x.isMoved === false);
-    //       console.log(obj);
-    //       const itemIndex = array.indexOf(obj);
-    //       array[itemIndex].index = newIndex + 1;
-    //       array[itemIndex].isMoved = true;
-    //       item.id = newIndex + 1;
-    //     });
-
-    //     array.forEach((item) => {
-    //       item.isMoved = false;
-    //     });
-    //     console.log(array);
-    //     localStorage.setItem('tasks', JSON.stringify(array));
-    //   });
-    // });
-
     draggable.addEventListener('drop', () => {
       const newDrags = document.querySelectorAll('.todo-task');
-      const newOrder = [];
       newDrags.forEach((drag, index) => {
         drag.id = index;
-        newOrder.push({ description: drag.firstChild.lastChild.value, isCompleted: drag.classList.contains('active'), index: drag.id });
-        console.log(drag.firstChild.lastChild.value);
+        newOrder.push({ description: drag.firstChild.lastChild.value, isCompleted: drag.classList.contains('active'), index: Number(drag.id) });
       });
       localStorage.setItem('tasks', JSON.stringify(newOrder));
     });
