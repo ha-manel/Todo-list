@@ -24,4 +24,4 @@ refreshBtn.addEventListener('click', () => {
 });
 
 // clear complated
-status.clearCompleted(tasks.tasksArray);
+status.clearCompleted(tasks);

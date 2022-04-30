@@ -129,3 +129,9 @@ i {
 .move-task {
   cursor: move;
 }
+
+.dragging{
+  border: 1px solid #a5a58d !important;
+}
+
+

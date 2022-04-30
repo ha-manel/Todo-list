@@ -13,12 +13,12 @@ export default class Status {
   }
 
   // clear the completed tasks
-  clearCompleted = (array) => {
+  clearCompleted = (tasks) => {
     const clearBtn = document.querySelector('#clear-completed');
     clearBtn.addEventListener('click', () => {
-      array = array.filter((item) => item.isCompleted === false);
-      localStorage.setItem('tasks', JSON.stringify(array));
-      document.location.reload();
+      tasks.tasksArray = tasks.tasksArray.filter((item) => item.isCompleted === false);
+      localStorage.setItem('tasks', JSON.stringify(tasks.tasksArray));
+      tasks.populateList();
     });
   }
 }
