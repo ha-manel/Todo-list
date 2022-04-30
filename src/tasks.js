@@ -10,7 +10,6 @@ export default class Tasks {
 
   populateList = () => {
     // display items
-    console.log(this.tasksArray);
     this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
     const todoContainer = document.querySelector('#todo-list');
     todoContainer.innerHTML = '';

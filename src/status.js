@@ -11,7 +11,6 @@ export default class Status {
         todoTask[index].classList.toggle('active');
         array[todoTask[index].id].isCompleted = !array[todoTask[index].id].isCompleted;
         localStorage.setItem('tasks', JSON.stringify(array));
-        console.log(array);
       });
     });
   }
