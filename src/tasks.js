@@ -1,5 +1,4 @@
 import Status from './status.js';
-import dragItem from './dragItems.js';
 
 const status = new Status();
 
@@ -10,15 +9,13 @@ export default class Tasks {
 
   populateList = () => {
     // display items
-    this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
     const todoContainer = document.querySelector('#todo-list');
     todoContainer.innerHTML = '';
     this.tasksArray.forEach((task) => {
       const li = document.createElement('li');
       li.className = 'todo-task';
-      li.draggable = true;
       li.id = task.index;
-      li.innerHTML = `<div><button class="check-task"><i class="fa-regular fa-square"></i> <i class="fa-solid fa-check"></i></button> <input class="todo-input" type="text" value="${task.description}"></div><div><button class="delete-task"><i class="fa-solid fa-trash-can"></i></button><button class="move-task"><i class="fa-solid fa-ellipsis-vertical"></i></button><div>`;
+      li.innerHTML = `<div><button class="check-task"><i class="fa-regular fa-square"></i> <i class="fa-solid fa-check"></i></button> <input class="todo-input" type="text" value="${task.description}"></div><button class="delete-task"><i class="fa-solid fa-trash-can"></i></button>`;
       todoContainer.insertBefore(li, todoContainer.children[task.index]);
       if (task.isCompleted) {
         li.classList.add('active');
@@ -50,13 +47,9 @@ export default class Tasks {
 
     // complete task and update status
     status.completeTask(this.tasksArray);
-
-    // dragging feature
-    dragItem();
   }
 
   add = (value) => {
-    this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
     this.tasksArray.push({
       description: value,
       isCompleted: false,
@@ -67,14 +60,12 @@ export default class Tasks {
   }
 
   update = (value, index) => {
-    this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
     this.tasksArray[index].description = value;
     localStorage.setItem('tasks', JSON.stringify(this.tasksArray));
     this.populateList();
   }
 
   remove = (index) => {
-    this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
     this.tasksArray.splice(index, 1);
     for (let i = 0; i < this.tasksArray.length; i += 1) {
       this.tasksArray[i].index = i;
