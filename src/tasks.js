@@ -7,6 +7,11 @@ export default class Tasks {
     this.tasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
   }
 
+  saveAndRender = () => {
+    localStorage.setItem('tasks', JSON.stringify(this.tasksArray));
+    this.populateList();
+  }
+
   populateList = () => {
     // display items
     const todoContainer = document.querySelector('#todo-list');
@@ -30,8 +35,20 @@ export default class Tasks {
       });
     });
 
-    // edit item
+    // focus item
     const editInput = document.querySelectorAll('.todo-input');
+    const todoTask = document.querySelectorAll('.todo-task');
+    editInput.forEach((input, index) => {
+      input.addEventListener('focus', () => {
+        todoTask[index].classList.add('focus');
+      });
+
+      input.addEventListener('focusout', () => {
+        todoTask[index].classList.remove('focus');
+      });
+    });
+
+    // edit item
     editInput.forEach((input, index) => {
       input.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' && input.value) {
@@ -55,22 +72,20 @@ export default class Tasks {
       isCompleted: false,
       index: this.tasksArray.length,
     });
-    localStorage.setItem('tasks', JSON.stringify(this.tasksArray));
-    this.populateList();
+    this.saveAndRender();
   }
 
   update = (value, index) => {
     this.tasksArray[index].description = value;
-    localStorage.setItem('tasks', JSON.stringify(this.tasksArray));
-    this.populateList();
+    this.saveAndRender();
   }
 
   remove = (index) => {
     this.tasksArray.splice(index, 1);
-    for (let i = 0; i < this.tasksArray.length; i += 1) {
-      this.tasksArray[i].index = i;
-    }
-    localStorage.setItem('tasks', JSON.stringify(this.tasksArray));
-    this.populateList();
+    this.tasksArray.forEach((task, index) => {
+      task.index = index;
+      console.log(task.index);
+    });
+    this.saveAndRender();
   }
 }
