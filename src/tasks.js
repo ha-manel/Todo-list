@@ -84,7 +84,6 @@ export default class Tasks {
     this.tasksArray.splice(index, 1);
     this.tasksArray.forEach((task, index) => {
       task.index = index;
-      console.log(task.index);
     });
     this.saveAndRender();
   }
