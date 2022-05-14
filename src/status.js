@@ -8,6 +8,12 @@ export default class Status {
         todoTask[index].classList.toggle('active');
         array[index].isCompleted = !array[index].isCompleted;
         localStorage.setItem('tasks', JSON.stringify(array));
+        const todoInput = document.querySelectorAll('.todo-input');
+        if (todoTask[index].classList.contains('active')) {
+          todoInput[index].setAttribute('readOnly', true);
+        } else {
+          todoInput[index].removeAttribute('readOnly');
+        }
       });
     });
   }
@@ -17,8 +23,7 @@ export default class Status {
     const clearBtn = document.querySelector('#clear-completed');
     clearBtn.addEventListener('click', () => {
       tasks.tasksArray = tasks.tasksArray.filter((item) => item.isCompleted === false);
-      localStorage.setItem('tasks', JSON.stringify(tasks.tasksArray));
-      tasks.populateList();
+      tasks.saveAndRender();
     });
   }
 }
