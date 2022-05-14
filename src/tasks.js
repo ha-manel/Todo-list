@@ -40,7 +40,9 @@ export default class Tasks {
     const todoTask = document.querySelectorAll('.todo-task');
     editInput.forEach((input, index) => {
       input.addEventListener('focus', () => {
-        todoTask[index].classList.add('focus');
+        if (!this.tasksArray[index].isCompleted) {
+          todoTask[index].classList.add('focus');
+        }
       });
 
       input.addEventListener('focusout', () => {
