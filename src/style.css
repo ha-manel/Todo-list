@@ -96,6 +96,14 @@ main {
   text-decoration: line-through;
 }
 
+.todo-task.focus {
+  background-color: rgba(239, 211, 215, 0.2);
+}
+
+.todo-task.focus .todo-input{
+  background-color: rgba(239, 211, 215, 0.2);
+}
+
 button {
   min-width: 30px;
   cursor: pointer;
