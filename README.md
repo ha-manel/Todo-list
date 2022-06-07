@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Microverse To-Do list
+# To-Do list
 
-> This is a Microverse (@microverseinc) project in which I created a To-do list using webpack.
+> A todo list app in which the user can add new tasks, edit, complete or delete them. The user can also clear all the completed tasks.
 
 ## Requirements
 
@@ -24,7 +24,7 @@ Build a Todo list using:
 
 ## Live Demo
 
-Check **Live Demo** [here.](https://ha-manel.github.io/Microverse-to-do-list/dist/index.html)
+Check **Live Demo** [here.](https://ha-manel.github.io/Todo-list/)
 
 ## Getting Started
 
