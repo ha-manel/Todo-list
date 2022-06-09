@@ -24,7 +24,7 @@ Build a Todo list using:
 
 ## Live Demo
 
-Check **Live Demo** [here.](https://ha-manel.github.io/Todo-list/)
+Check **Live Demo** [here.](https://ha-manel.github.io/Todo-list/dist/)
 
 ## Getting Started
 
